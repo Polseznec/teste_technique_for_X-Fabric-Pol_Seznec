@@ -3,71 +3,78 @@ import { Redirect } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
+import { View, Form } from "../styles/Container.style";
+import { Button } from "../styles/Button.style";
+import { Tilte, AlertMessage } from "../styles/Text.style";
+import { Input } from "../styles/Input.style";
+
 function Home() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [onSubmit, setOnSubmit] = useState(false);
 
-//   const [newData, SetNewData] = useState({
-//     firstname: "",
-//     lastname: "",
-//     email: "",
-//     phone: "",
-//   });
-  const [onSubmit,setOnSubmit] = useState(false)
+  //   const [newData, SetNewData] = useStaƒ({
+  //     firstname: "",
+  //     lastname: "",
+  //     email: "",
+  //     phone: "",
+  //   });
+  // 
 
+  console.log(errors);
   const submit = (newData) => {
-
     axios.post("http://localhost:3005/users", {
       firstname: newData.firstname,
       lastname: newData.lastname,
       email: newData.email,
       phone: newData.phone,
     });
-    setOnSubmit(true)
+    setOnSubmit(true);
   };
- 
 
   return (
-      
-    <div>
-      <h2>Sign Up</h2>
+    <View>
+      <Tilte>Formulaire</Tilte>
       <div>
-        <form onSubmit={handleSubmit(submit)}>
-          <input
-            {...register("firstname", { required: "Nom invalide !" })}
+        <Form onSubmit={handleSubmit(submit)}>
+          <Input
+            {...register("firstname", { required: "Nom invalide !"})}
             type="text"
             placeholder="Nom"
             className="is-invalide"
+           
           />
-          {errors.firstname && <span>{errors.firstname.message}</span>}
-          <input
+          {errors.firstname && (
+            <AlertMessage>{errors.firstname.message}</AlertMessage>
+          )}
+          <Input
             {...register("lastname", { required: "Prénom invalide !" })}
             type="text"
             placeholder="Prénom"
           />
-          {errors.lastname && <span>{errors.lastname.message}</span>}
-          <input
+          {errors.lastname && (
+            <AlertMessage>{errors.lastname.message}</AlertMessage>
+          )}
+          <Input
             {...register("email", { required: "Email invalide !" })}
             type="email"
             placeholder="Email"
           />
-          {errors.email && <span>{errors.email.message}</span>}
-          <input
+          {errors.email && <AlertMessage>{errors.email.message}</AlertMessage>}
+          <Input
             {...register("phone", { required: false })}
             type="text"
             placeholder="Téléphone"
           />
-          <button>log in</button>
-         {onSubmit && <Redirect to="/profile" />}
-        </form>
+          <Button>CONFIRMER</Button>
+          {onSubmit && <Redirect to="/profil" />}
+        </Form>
       </div>
-    </div>
+    </View>
   );
 }
 
 export default Home;
-
-

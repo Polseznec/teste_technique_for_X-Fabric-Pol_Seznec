@@ -1,13 +1,21 @@
 import React from "react";
+import { Profile } from "../styles/Container.style";
+import { ProfileInfo } from "../styles/Text.style";
 
 function ProfileDisplayer({ user }) {
   return (
-    <div>
-      <div>Nom : {user.firstname}</div>
-      <div>Prénom : {user.lastname}</div>
-      <div>Email : {user.email}</div>
-      {user.phone === "" ? <div>Telephone : Pas indiqué</div> : <div>Telephone : {user.phone}</div> }
-    </div>
+    <Profile>
+      <ProfileInfo>
+        <p>Nom : {user.firstname}</p>
+        <p>Prénom : {user.lastname}</p>
+        <p>Email : {user.email}</p>
+        {user.phone === "" ? (
+          <p>Téléphone : Non indiqué</p>
+        ) : (
+          <p>Téléphone : {user.phone}</p>
+        )}
+      </ProfileInfo>
+    </Profile>
   );
 }
 

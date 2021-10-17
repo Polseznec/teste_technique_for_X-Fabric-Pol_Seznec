@@ -3,6 +3,10 @@ import ProfileDisplayer from "../components/ProfileDisplayer";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+import { View } from "../styles/Container.style";
+import { Button } from "../styles/Button.style";
+import { Tilte } from "../styles/Text.style";
+
 function Profile() {
   const [data, setdata] = useState([]);
 
@@ -15,15 +19,15 @@ function Profile() {
   };
 
   return (
-    <div>
-      <h1>Profile</h1>
+    <View>
+      <Tilte>Profil</Tilte>
       {data.slice(-1).map((user) => (
         <ProfileDisplayer user={user} />
       ))}
       <Link to="/">
-        <button>Log Out</button>
+        <Button>Déconnexion</Button>
       </Link>
-    </div>
+    </View>
   );
 }
 
