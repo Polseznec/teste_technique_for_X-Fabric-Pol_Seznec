@@ -22,7 +22,7 @@ function Home() {
   //     email: "",
   //     phone: "",
   //   });
-  // 
+  //
 
   console.log(errors);
   const submit = (newData) => {
@@ -41,11 +41,10 @@ function Home() {
       <div>
         <Form onSubmit={handleSubmit(submit)}>
           <Input
-            {...register("firstname", { required: "Nom invalide !"})}
+            {...register("firstname", { required: "Nom invalide !" })}
             type="text"
             placeholder="Nom"
             className="is-invalide"
-           
           />
           {errors.firstname && (
             <AlertMessage>{errors.firstname.message}</AlertMessage>
