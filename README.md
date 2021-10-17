@@ -3,7 +3,7 @@
 
 Question 1 : /teste_technique_for_X-Fabric-Pol_Seznec/excercie_1/file_to_analyze.jsx
 <ul>
-   <li>Toutes L'analyse du fichier est faite en commentaire.</li>
+   <li>Toutes L'analyse du fichier est faite en commentaire dans le fichier lui même.</li>
   </ul>
 
 Question 2 : /teste_technique_for_X-Fabric-Pol_Seznec/exercice_2/form_exercice/
