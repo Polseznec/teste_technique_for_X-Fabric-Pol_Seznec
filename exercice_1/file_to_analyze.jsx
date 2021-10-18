@@ -12,7 +12,7 @@ import * as EventSelectionActions from "../../../actions/eventSelectionActions/_
 
 /*
  *ligne 1 à 11 :
- *Importation des differentes "dependencies", components React, couleurs.
+ *Importation des différentes "dependencies", components React, couleurs.
  *utile au bon fonctionnement de ce fichier.
  */
 
@@ -23,8 +23,8 @@ EventSubscriptions.propTypes = {
 
 /*
  *ligne 19 à 22 :
- *Utilisation de la dependence "PropTypes".
- *Analyse Les "Type" des Props reçu la fonctionn EventSubscriptions().
+ *Utilisation de la librairie "PropTypes".
+ *Analyse Les "Type" des Props reçu la fonction EventSubscriptions().
  */
 
 /**
@@ -38,10 +38,10 @@ EventSubscriptions.propTypes = {
 
 /*
  *ligne 32 à 36 :
- *Decription technique de ce fichier:
- *"props" &  "props.userEventList" sont tous deux d'est object que reçois la fonction EventSubscriptions().
+ *Description technique de ce fichier:
+ *"props" &  "props.userEventList" sont tous deux d'est objet que reçoit la fonction EventSubscriptions().
  * @param {Function} props.selectEventList : Indique que props.selectEventList est une fonction.
- * @return {JSX.Element} :  Indique quelle type de fichier retourne ce fichier. Le fichier retrouné est un fichier .jsx, Soit un fichier JavaScripte React.
+ * @return {JSX.Element} :  Indique quel type de fichier retourne ce fichier. Le fichier retourné est un fichier .jsx, soit un fichier JavaScripte React.
  */
 
 function EventSubscriptions(props) {
@@ -52,7 +52,7 @@ function EventSubscriptions(props) {
   /*
    *ligne 49 & 50:
    *déclaration de 2 Hooks "useState", avec  comme valeur initiale un array vide (chacun).
-   *A pour utilité de pouvoir recupérer  ou modifier la valeur  au sein de la fonction useState()
+   *A pour utilité de pouvoir récupérer  ou modifier la valeur au sein de la fonction useState()
    */
 
   const dispatch = useDispatch();
@@ -67,11 +67,11 @@ function EventSubscriptions(props) {
 
   /*
    *ligne 58:
-   * Declarationde la constante dispatch faisant appelle a la propriété 'useDispatch()' de la library  Redux.
+   * Déclaration de la constante dispatch faisant appelle à la propriété 'useDispatch()' de la library  Redux.
    * Ligne 59 à 65:
    * Utilisation du Hook React useEffect, qui dans ce cas fait des appelle serveur a Redux.
    * Je pense que ce Hook a pour utilité de sauvegardé dans le serveur, grace a Redux les actions de "follow" ou "unfollow" d'un utilisateur
-   * à un event disponible sur L'app.
+   * aux events disponible sur L'app.
    */
 
   useEffect(() => {
@@ -93,14 +93,14 @@ function EventSubscriptions(props) {
    *ligne 77:
    * Hook React useEffect()
    * ligne 78 & 79:
-   * déclaration de 2 constante avec comme valeur un array Vide.
+   * déclaration de 2 constantes, avec comme valeur un array Vide (chacun).
    * ligne 81 à 89 :
    * logique du hook =>
    * Pour chaque data(events enregistré dans le server)de la props "userEventList" ,
-   * verifie si la date actuelle est inferieur ou egal à la date de commencement  & si la date actuelle est superieur ou egal à la date de fin de chaque event.
-   * Si ils replie les 2 conditions, les valeur de  l'event  seront disponible dans l'array "newOngoingEvents". Sinonles valeur de  l'event  seront disponible dans l'array "newNotOngoingEvents".
-   * Ensuite, les valeurs 'trié' entre les deux arrays "Ongoing" & "NotOngoing" sont envoyé dans les hook de statue (ligne 49 pour "Ongoing" & ligne 50 pour "NotOngoing" ). Ce qui mes a jour les Status de cette function.
-   * Pour finir, Ce Hook "S'active" a chaque fois que l'objet userEventList change.
+   * vérifie si la date actuelle est inférieur ou égal à la date de commencement  & si la date actuelle est supérieur ou égal à la date de fin de chaque event.
+   * Si l'event remplie les 2 conditions, les valeur de  l'event  seront disponible dans l'array "newOngoingEvents". Sinon les valeur de  l'event  seront disponible dans l'array "newNotOngoingEvents".
+   * Ensuite, les valeurs 'trié' entre les deux arrays "Ongoing" & "NotOngoing" sont envoyés dans les hook de statue (ligne 49 pour "Ongoing" & ligne 50 pour "NotOngoing" ). Ce qui met à jour les status de cette function.
+   * Pour finir, Ce Hook "S'active" à chaque fois que l'objet userEventList change.
    */
 
   return (
@@ -118,14 +118,14 @@ function EventSubscriptions(props) {
     </Container>
     /*
      *ligne 106:
-     * Tous ce qui est compris dansle return sera affiché dans le DOM.
+     * Tout ce qui est compris dans le return sera affiché dans le DOM.
      * ligne 107 :
      * component de style due à la librarie "styled-components"
      * ligne 108 & 117 :
-     * Ici est appellé 3 components.
-     *  => EventSelectionTopBar : reçois 3 props. underlined, selectEventSubscriptions & selectEventList. Cette dernière etais déja une props dans ce fichier.
+     * Ici est appelé 3 components.
+     *  => EventSelectionTopBar : reçois 3 props. underlined, selectEventSubscriptions & selectEventList. Cette dernière était déjà une props dans ce fichier.
      *  => OngoingEventCarousel : Ne sera affiché que si le nombres d'object dans l'array ongoingEvents et inferieur a 0. Et reçois la props ongoingEvents si la condition est remplit.
-     *  => SubscriptionList : reçois 1 props, notOngoingEvents. c'est un array qui à reçu des objets venant du hook useEffect. Hook useEffect Trigged par un modification de l'object userEventList.
+     *  => SubscriptionList : reçois 1 props, notOngoingEvents. c'est un array qui à reçu des objets venant du hook useEffect. Hook useEffect s'active par à chaque fois que l'objet userEventList  est modification.
      */
   );
 }
@@ -134,7 +134,7 @@ export default EventSubscriptions;
 
 /*
  *ligne 133:
- *Export de la fonction EventSubscriptions?
+ *Export de la fonction EventSubscriptions.
  */
 
 const Container = styled.View`
@@ -145,6 +145,6 @@ const Container = styled.View`
 
 /*
  *ligne 140 à 144:
- *Déclation du style CSS lié au componant de style "Container". Tous element html à l'interieur de ce component
+ *Déclaration du style CSS lié au componant de style "Container". Tout élément html à l'intérieur de ce component
  * aura un flex de 1, un display: flex et un bg-color importé depuis "../../../assets/colors/Colors"
  */
